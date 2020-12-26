@@ -1,12 +1,25 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField
-from wtforms.validators import DataRequired, EqualTo, Email
+from wtforms.validators import DataRequired, EqualTo, Email, ValidationError
+from app.models import User
 
-class RegisterUserForm(FlaskForm):
+class RegistrationUserForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
+
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user is not None:
+            raise ValidationError('Please use a different username')
+    
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is not None:
+            raise ValidationError('Please use a different email')
+
 
 class LoginUserForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -14,20 +27,19 @@ class LoginUserForm(FlaskForm):
     remember_me = BooleanField('Remember me')
     submit = SubmitField('Login')
 
-class ForgotUserPasswordForm(FlaskForm):
+class ResetPasswordRequestForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Send')
 
-class ChangeUserPasswordForm(FlaskForm):
-    old_password = PasswordField('Old Password', validators=[DataRequired()])
-    new_password = PasswordField('New Password', validators=[DataRequired()])
-    new_password2 = PasswordField('Repeat New Password', validators=[DataRequired(), EqualTo('new_password')])
+class ResetUserPasswordForm(FlaskForm):
+    password = PasswordField('New Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat New Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Change')
 
 class AddTaskForm(FlaskForm):
-    task = StringField(validators=[DataRequired()])
+    content = StringField(validators=[DataRequired()])
     submit = SubmitField('Add Task')
 
 class EditTaskForm(FlaskForm):
-    task = StringField(validators=[DataRequired()])
+    content = StringField(validators=[DataRequired()])
     submit = SubmitField('Submit')
