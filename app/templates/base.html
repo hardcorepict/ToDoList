@@ -13,15 +13,15 @@
   <body>
     <header>
       <div class="mainhead_right">
-        <li><a href="#">Left Menu</a></li>
+        <li><a href="/">Left Menu</a></li>
       </div>
       <div class="mainhead_left">
         <ul>
-          <li><a href="/">Main Page</a></li>
           {% if current_user.is_anonymous %}
           <li><a href="{{ url_for('register') }}">Register</a></li>
           <li><a href="{{ url_for('login') }}">Login</a></li>
           {% else %}
+          <li><a href={{ url_for('user_task', user_name=current_user.username) }}>Main Page</a></li>
           <li><a href="{{ url_for('logout') }}">Logout</a></li>
           {% endif %}
         </ul>

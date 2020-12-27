@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form">
+  <h2>Update task</h2>
+  <form action="" method="POST">
+    {{ form.hidden_tag() }}{{ form.content }} {{ form.submit}}
+  </form>
+</div>
+{% endblock %}
