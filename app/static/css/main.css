@@ -86,7 +86,6 @@ header {
 #menu li:last-child {
   margin-right: 0;
 }
-/* всплывающие сообщения */
 #flash {
   width: 100%;
   background: #f8b763;
@@ -102,7 +101,6 @@ header {
   width: 100%;
   margin-top: 15px;
 }
-/* таблица задач */
 .table {
   border-collapse: collapse;
   border-spacing: 5px;
@@ -135,7 +133,6 @@ td {
 .table tr:hover td {
   background-color: #f8b763;
 }
-/*формы добавления и редактирования задач*/
 .taskform {
   margin: 15px;
 }
@@ -150,7 +147,6 @@ td {
 .submit-btn:hover {
   background-color: #f8b763;
 }
-/*формы регистрации и логина*/
 .loginform,
 .registerform,
 .resetpasswordform,
@@ -181,7 +177,6 @@ td {
 .resetpasswordrequestform p:after{
   margin-bottom: 5px;
 } 
-
 .user-input-field,
 .submit-user-form-btn {
   width: 100%;
