@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="updatetaskform">
-  <h2>Update task</h2>
-  <form action="" method="POST">
-    {{ form.hidden_tag() }}{{ form.content }} {{ form.submit}}
+<div class="wrapper">
+  <span>Update task<span>
+  <form class='taskform' action="" method="POST">
+    {{ form.hidden_tag() }}{{ form.content(class='input-box') }} {{ form.submit(class='submit-btn')}}
   </form>
 </div>
 {% endblock %}

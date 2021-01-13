@@ -2,8 +2,8 @@
 
 {% block content %}
 {% if current_user.is_anonymous %}
-<h1>Test index page</h1>
+<span>Test index page</span>
 {% else %}
-<h1>Hello, {{ current_user.username }}</h1>
+<span>Hello, {{ current_user.username }}</span>
 {% endif %}
 {% endblock %}

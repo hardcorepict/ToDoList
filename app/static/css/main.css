@@ -1,0 +1,198 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: 0.1s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+body {
+  font-family: "Open Sans", arial, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  color: #373737;
+  background: #f7f7f7;
+}
+/* добавим очистку потока для всех контейнеров, внутри которых задано обтекание дочерних элементов */
+header:after,
+.container:after,
+footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* стилевой класс, который управляет шириной контейнера сетки*/
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  padding: 0 15px;
+}
+header {
+  width: 100%;
+  background: white;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+  margin-bottom: 15px;
+  position: relative;
+}
+.logo {
+  display: block;
+  float: left;
+}
+.logo span {
+  color: white;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  margin: 5px 0;
+  text-align: center;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+.logo span:nth-child(odd) {
+  background: #ef5a42;
+}
+.logo span:nth-child(even) {
+  background: #f8b763;
+}
+#menu {
+  float: right;
+}
+#menu li {
+  display: inline-block;
+  margin-right: 30px;
+}
+#menu a {
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  display: block;
+  line-height: 40px;
+}
+#menu a:hover {
+  color: #ef5a42;
+}
+#menu li:last-child {
+  margin-right: 0;
+}
+/* всплывающие сообщения */
+#flash {
+  width: 100%;
+  background: #f8b763;
+  position: relative;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+.wrapper {
+  text-align: center;
+}
+#notasks {
+  width: 100%;
+  margin-top: 15px;
+}
+/* таблица задач */
+.table {
+  border-collapse: collapse;
+  border-spacing: 5px;
+  margin: auto;
+  width: 100%;
+  max-width: 900px;
+}
+.table th {
+  font-size: 15px;
+  font-weight: 300;
+  padding: 12px 10px;
+  border-bottom: 2px solid #ef5a42;
+  color: #f56433;
+}
+.table th td:first-child,
+.table tr td:first-child {
+  text-align: left;
+  width: 70%;
+  word-break: break-all;
+}
+.table tr:last-child {
+  border-bottom: none;
+}
+tbody tr {
+  border-bottom: 1px solid #ef5a42;
+}
+td {
+  padding: 10px;
+}
+.table tr:hover td {
+  background-color: #f8b763;
+}
+/*формы добавления и редактирования задач*/
+.taskform {
+  margin: 15px;
+}
+.input-box {
+  width: 50%;
+}
+.submit-btn,
+.input-box {
+  border-radius: 5px;
+  padding: 2px 2px;
+}
+.submit-btn:hover {
+  background-color: #f8b763;
+}
+/*формы регистрации и логина*/
+.loginform,
+.registerform,
+.resetpasswordform,
+.resetpasswordrequestform {
+  border: 2px solid #ef5a42;
+  border-radius: 10px;
+  align-items: center;
+  margin: auto;
+  padding: 20px 10px;
+  width: 30%;
+  min-width: 300px;
+}
+.loginform > span,
+.registerform > span,
+.resetpasswordform > span,
+.resetpasswordrequestform > span {
+  text-align: center;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  display: block;
+  line-height: 40px;
+}
+.loginform p:after,
+.registerform p:after,
+.resetpasswordform p:after,
+.resetpasswordrequestform p:after{
+  margin-bottom: 5px;
+} 
+
+.user-input-field,
+.submit-user-form-btn {
+  width: 100%;
+  padding: 2px 2px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.submit-user-form-btn:hover {
+  background-color: #f8b763;
+}
+.error {
+  color: red;
+  padding: 5px 2px;
+}

@@ -1,36 +1,32 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<div>
-    <h2>{{ current_user.username }}'s Tasks </h2>
-    <form action='' method='post'>
-        {{ form.hidden_tag() }}
-        {{ form.content }}
-        {{ form.submit }}
-    </form>
-    {% if tasks|length < 1 %}
-    <h4>Tasks weren't been added</h4>
-    {% else %}
-    <table class='table'>
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>Added</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for task in tasks %}
-          <tr>
-            <td>{{ task.content }}</td>
-            <td>{{ task.timestamp }}</td>
-            <td>
-              <a class='btn-upd' href="/update/{{ task.id }}">Update</a>
-              <a class='btn-del' href="/delete/{{ task.id }}">Delete</a>
-            </td>
-          </tr>
-          {% endfor %} {% endif %}
-        </tbody>
-      </table>
+{% extends 'base.html' %} {% block content %}
+<div class="wrapper">
+  <form action="" method="post" class="taskform">
+    {{ form.hidden_tag() }} {{ form.content(class='input-box') }} {{
+    form.submit(class='submit-btn') }}
+  </form>
+  {% if tasks|length < 1 %}
+  <span id='notasks'>Tasks weren't been added</span>
+  {% else %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Added</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        <td>{{ task.content }}</td>
+        <td>{{ task.timestamp }}</td>
+        <td>
+          <a class="btn-upd" href="/update/{{ task.id }}">Update</a>
+          <a class="btn-del" href="/delete/{{ task.id }}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %} {% endif %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}
